@@ -1,6 +1,7 @@
 package com.oi.boi.controller;
 
 import com.oi.boi.domain.Category;
+import com.oi.boi.domain.Priority;
 import com.oi.boi.repo.CategoryReactiveRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -77,5 +78,29 @@ class CategoryControllerTest {
                 .expectStatus()
                 .isCreated();
     }
+
+//    @Test
+//    void testPatchMethod() {
+//        Mono<Category> categoryFromRepoMono = Mono.just(
+//                Category.builder().id("sdfsdf").description("cat").priority(Priority.LOW).build()
+//        );
+//
+//        Mono<Category> categoryFromRequest = Mono.just(
+//                Category.builder().description("cat_updated").build()
+//        );
+//
+//        Category categoryUpdated = Category.builder().id("sdfsdf").description("cat_updated").priority(Priority.LOW).build();
+//
+//        String id = "some_id";
+//
+//        BDDMockito.given(categoryReactiveRepo.findById(id))
+//                .willReturn(categoryFromRepoMono);
+//
+//        webTestClient.patch().uri("/api/v1/categories/" + id)
+//                .body(categoryFromRequest, Category.class)
+//                .exchange()
+//                .expectBody(Category.class)
+//                .isEqualTo(categoryUpdated);
+//    }
 
 }

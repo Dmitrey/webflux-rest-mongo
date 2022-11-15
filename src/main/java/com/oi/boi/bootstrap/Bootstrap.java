@@ -1,6 +1,7 @@
 package com.oi.boi.bootstrap;
 
 import com.oi.boi.domain.Category;
+import com.oi.boi.domain.Priority;
 import com.oi.boi.domain.Vendor;
 import com.oi.boi.repo.CategoryReactiveRepo;
 import com.oi.boi.repo.VendorReactiveRepo;
@@ -39,9 +40,9 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     private void loadCategories() {
-        Category category = Category.builder().description("cat 1").build();
-        Category category1 = Category.builder().description("cat 2").build();
-        Category category2 = Category.builder().description("cat 3").build();
+        Category category = Category.builder().description("cat 1").priority(Priority.LOW).build();
+        Category category1 = Category.builder().description("cat 2").priority(Priority.MEDIUM).build();
+        Category category2 = Category.builder().description("cat 3").priority(Priority.HIGH).build();
         categoryReactiveRepo.saveAll(Arrays.asList(category,category1,category2)).blockFirst();
         log.debug("categories loaded");
     }
